@@ -1,0 +1,10 @@
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\bin\Debug\DBController.exe
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\bin\Debug\DBController.pdb
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\obj\Debug\DBController.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\obj\Debug\DBController.Form1.resources
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\obj\Debug\DBController.logo.resources
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\obj\Debug\DBController.Properties.Resources.resources
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\obj\Debug\DBController.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\obj\Debug\DBController.exe
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\obj\Debug\DBController.pdb
+c:\users\user\documents\visual studio 2017\Projects\DBController\DBController\bin\Debug\DBController.exe.config
