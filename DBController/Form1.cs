@@ -9,14 +9,14 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
+using System.Data.Sql;
+using System.Data.OleDb;
 
 namespace DBController
 {
     public partial class Form1 : Form
     {
-        string returnFile;
-        string openFile = "";
-        private string myDoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); public string Doc() { return myDoc; }
+        public string folder, file, myDoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         public Form1()
         {
@@ -24,38 +24,11 @@ namespace DBController
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {/*
             logo f = new logo();
             f.Show();
             Wait(2);
-            f.Close();
-        }
-
-        private void Exit()
-        {
-            DialogResult r;
-            r = MessageBox.Show("Сохранить?", "Выход", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-            if(r == DialogResult.Yes)
-            {
-                string str = "";
-                FolderBrowserDialog folder = new FolderBrowserDialog();
-                if (folder.ShowDialog() == DialogResult.OK)
-                {
-                    int ind1 = openFile.LastIndexOf("\\");
-                    string item = openFile.Substring(ind1);
-                    str = folder.SelectedPath + item;
-                    FileInfo fileInf = new FileInfo(openFile);
-                    if (fileInf.Exists)
-                    {
-                        FileInfo fileInf2 = new FileInfo(str);
-                        if (!fileInf2.Exists)
-                        {
-                            fileInf.MoveTo(str);
-                        }
-                    }
-                }
-            }
-            //Делать
+            f.Close();*/
         }
 
         public void Wait(int seconds)
@@ -69,14 +42,14 @@ namespace DBController
 
         private void открытьВПроводникеToolStripMenuItem_Click(object sender, EventArgs e)                     //Открыть в проводнике
         {
-            if (openFile != "")
+            if (file != "")
             {
                 Process PrFolder = new Process();
                 ProcessStartInfo psi = new ProcessStartInfo();
                 psi.CreateNoWindow = true;
                 psi.WindowStyle = ProcessWindowStyle.Normal;
                 psi.FileName = "explorer";
-                psi.Arguments = @"/n, /select, " + openFile;
+                psi.Arguments = @"/n, /select, " + file;
                 PrFolder.StartInfo = psi;
                 PrFolder.Start();
             }
@@ -84,13 +57,14 @@ namespace DBController
 
         private void создатьToolStripMenuItem_Click(object sender, EventArgs e)                                //Файл - Создать
         {
-            DirectoryInfo di = new DirectoryInfo(Doc() + "\\DBController");
+            DirectoryInfo di = new DirectoryInfo(myDoc + "\\DBControllerDataBases");
             if(!di.Exists)
             {
                 di.Create();
-                returnFile = Doc() + "\\DBController";
+                folder = myDoc + "\\DBControllerDataBases";
             }
-            //Создание файла
+            CreateDB cr = new CreateDB(this);
+            cr.Show();
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)                                //Файл - Открыть
@@ -100,18 +74,40 @@ namespace DBController
             ofd1.RestoreDirectory = true;
             if (ofd1.ShowDialog() == DialogResult.OK)
             {
-                openFile = ofd1.FileName;
+                file = ofd1.FileName;
+                this.Text = file;
             }
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)                                  //Закрытие
         {
-            Exit();
-        }
-
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Exit();
+            DialogResult r = MessageBox.Show("Сохранить?", "Выход", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (r == DialogResult.Yes)
+            {
+                FolderBrowserDialog folder = new FolderBrowserDialog();
+                if (folder.ShowDialog() == DialogResult.OK)
+                {
+                    string str = folder.SelectedPath;
+                    int i = file.LastIndexOf("\\");
+                    str = str + file.Substring(i);
+                    FileInfo fileInf = new FileInfo(file);
+                    if (fileInf.Exists)
+                    {
+                        FileInfo fileInf2 = new FileInfo(str);
+                        if (!fileInf2.Exists)
+                        {
+                            fileInf.MoveTo(str);
+                            MessageBox.Show("Complete");
+                        }
+                        else e.Cancel = true;
+                    }
+                    else e.Cancel = true;
+                }
+            }
+            else if(r == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

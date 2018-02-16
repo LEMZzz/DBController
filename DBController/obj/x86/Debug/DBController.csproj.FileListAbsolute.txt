@@ -1,0 +1,14 @@
+C:\Users\User\Documents\DBController\DBController\bin\x86\Debug\DBController.exe.config
+C:\Users\User\Documents\DBController\DBController\bin\x86\Debug\DBController.exe
+C:\Users\User\Documents\DBController\DBController\bin\x86\Debug\DBController.pdb
+C:\Users\User\Documents\DBController\DBController\bin\x86\Debug\Interop.VBIDE.dll
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\Interop.VBIDE.dll
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\DBController.csproj.ResolveComReference.cache
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\DBController.CreateDB.resources
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\DBController.Form1.resources
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\DBController.logo.resources
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\DBController.Properties.Resources.resources
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\DBController.csproj.GenerateResource.Cache
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\DBController.exe
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\DBController.pdb
+C:\Users\User\Documents\DBController\DBController\obj\x86\Debug\DBController.csprojResolveAssemblyReference.cache

@@ -1,0 +1,2 @@
+C:\Users\User\Documents\DBController\DBController\obj\x64\Debug\DBController.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\DBController\DBController\obj\x64\Debug\Interop.ADOX.dll
